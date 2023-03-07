@@ -6,7 +6,6 @@ import LatestArticles from "../components/entries/LatestArticles.astro";
 const allPosts = await getCollection("posts");
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <AstroSeo
   title="About Michael Andreuzza"
   description="Your site description goes here"
@@ -43,7 +42,6 @@ import { AstroSeo } from "@astrolib/seo";
 />
 <BaseLayout>
   <Hero />
-
   <section>
     <div class="mx-auto max-w-7xl px-8 py-12 sm:py-24">
       <div class="mx-auto max-w-2xl">
@@ -75,7 +73,7 @@ import { AstroSeo } from "@astrolib/seo";
         </div>
         <div class="flex flex-wrap">
           <a
-            class="inline-flex items-center gap-2 justify-center rounded-xl py-3 px-6 text-sm outline-offset-2 transition active:transition-none bg-accent-400 text-white font-medium hover:bg-neutral-800 active:bg-neutral-100 active:text-neutral-900/60 dark:bg-accent-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:active:bg-neutral-800/50 dark:active:text-neutral-50/70"
+            class="inline-flex items-center gap-2 justify-center rounded-xl py-3 px-6 text-sm outline-offset-2 transition active:transition-none bg-accent-400 text-white font-medium hover:bg-neutral-800 active:bg-neutral-100 active:text-neutral-900/60 dark:bg-accent-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:active:bg-neutral-800/50 dark:active:text-neutral-50/70 "
             href="/blog">
             Read all posts
           </a>

@@ -5,13 +5,13 @@ import { AstroSeo } from "@astrolib/seo";
 ---
 
 <AstroSeo
-  title="Title}"
-  description="{frontmatter.description}"
+  title="Blog"
+  description="Your site description goes here"
   canonical="https://www.lexingtonthemes.com"
   openGraph={{
     url: "https://www.lexingtonthemes.com",
-    title: "Title}",
-    description: "{frontmatter.description}",
+    title: "{Title}",
+    description: "Your site description goes here",
     images: [
       {
         url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
@@ -61,7 +61,7 @@ import { AstroSeo } from "@astrolib/seo";
   <section>
     <div class="mx-auto max-w-3xl px-8 py-12">
       <div
-        class="mx-auto prose text-neutral-400 dark:text-neutral-300 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-blockquote:text-accent-400 dark:prose-blockquote:text-white dark:prose-blockquote:border-accent-400 prose-img:border prose-img:border-white/10 prose-img:rounded-lg dark:prose-code:text-white prose-a:text-accent-400">
+        class="mx-auto prose text-neutral-400 dark:text-neutral-300 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-blockquote:text-accent-400 dark:prose-blockquote:text-accent-300 dark:prose-blockquote:border-accent-400 prose-img:border prose-img:border-white/10 prose-img:rounded-lg dark:prose-code:text-white dark:prose-a:text-accent-400 dark:prose-strong:text-white">
         <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
         <h1>{frontmatter.title}</h1>
         <p><em>{frontmatter.description}</em></p>

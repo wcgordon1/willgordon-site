@@ -1,14 +1,15 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import EntriesHero from "../components/entries/EntriesHero.astro";
-import EntriesOne from "../components/entries/EntriesOne.astro";
-const allPosts = await getCollection("posts");
+import Content from "../components/now/Content.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
 
+<!---
+Use AstroSeo in all the pages you want different Seo than the index page
+-->
 <AstroSeo
-  description="Profolio - Blog"
+  title="Work"
+  description="Your site description goes here"
   canonical="https://www.lexingtonthemes.com"
   openGraph={{
     url: "https://www.lexingtonthemes.com",
@@ -41,28 +42,5 @@ import { AstroSeo } from "@astrolib/seo";
   }}
 />
 <BaseLayout>
-  <EntriesHero />
-  <section>
-    <div class="mx-auto max-w-3xl px-8 py-12">
-      <div class="mx-auto max-w-2xl">
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12">
-          {
-            allPosts
-              .slice()
-              .map((post) => (
-                <EntriesOne
-                  url={"/posts/" + post.slug}
-                  title={post.data.title}
-                  description={post.data.description}
-                  alt={post.data.title}
-                  pubDate={post.data.pubDate.toString().slice(0, 10)}
-                  author={post.data.author}
-                  image={post.data.image.url}
-                />
-              ))
-          }
-        </ul>
-      </div>
-    </div>
-  </section>
+  <Content />
 </BaseLayout>

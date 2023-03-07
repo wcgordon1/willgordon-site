@@ -1,7 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import DesktopNav from "../components/navigation/DesktopNav.astro";
 import Footer from "../components/global/Footer.astro";
-import Navigation from "../components/global/Navigation.astro";
+import MobileNav from "../components/navigation/MobileNav.astro";
 import "../styles/global.css";
 ---
 
@@ -9,11 +10,24 @@ import "../styles/global.css";
   <head>
     <BaseHead />
   </head>
-  <body>
-    <Navigation />
-
-    <slot />
-    <Footer />
- 
+  <body class="dark:bg-neutral-900">
+    <div class="min-h-[640px] 2xl:max-w-7xl mx-auto 2xl:border-x">
+      <div x-data="{ open: false }" @keydown.window.escape="open = false">
+        <!-- Static sidebar for desktop -->
+        <DesktopNav />
+        <div class="relative z-0 flex flex-1 overflow-hidden">
+          <div
+            class="relative z-0 flex-1 overflow-y-auto focus:outline-none lg:pl-72">
+            <MobileNav />
+            <!-- Start main area-->
+            <div class="flex-1 mx-auto">
+              <slot />
+              <Footer />
+            </div>
+            <!--- end main area  -->
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

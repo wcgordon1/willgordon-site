@@ -1,11 +1,12 @@
 ---
-title: 'My First Blog Post'
-pubDate: 2022-07-01
-description: "This is the first post of my new Astro blog."
-author: "Astro Learner"
+pubDate: 2022-01-05
+title: '5 Essential Skills for Web Developers'
+author: "Profolio X"
+
+description: "Web development is a rapidly evolving field, and keeping up with the latest trends and technologies can be challenging. In this post, we'll explore five essential skills that every web developer should master, from front-end frameworks to server-side languages. Whether you're just starting out or looking to level up your skills, this guide has everything you need to know."
 image:
-  url: "https://cdn.dribbble.com/users/78433/screenshots/17689618/media/9f8474af46498fa16a11dae61d4277f5.png?compress=1&resize=1600x1200&vertical=top"
-  alt: "The Astro logo with the word One."
+  url: "https://images.pexels.com/photos/220357/pexels-photo-220357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  alt: "Your image title text"
 tags: ["astro", "blogging", "learning in public"]
 ---
 
@@ -35,7 +36,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ## Images
 
-![This is a placeholder image description](/placeholder-social.jpg)
+![This is a placeholder image description](https://images.pexels.com/photos/3184451/pexels-photo-3184451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 
 ## Blockquotes
 

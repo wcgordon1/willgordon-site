@@ -39,12 +39,36 @@ import { AstroSeo } from "@astrolib/seo";
   }}
 />
 <BaseLayout>
-  <div
-    class="mx-auto hover:prose-a:text-black prose prose-a:text-accent-500 prose-blockquote:border-l-black prose-blockquote:text-slate-500 prose-code:text-black prose-headings:font-bold prose-headings:text-black prose-headings:tracking-tighter prose-li:marker:text-accent-500 text-slate-500 py-24">
-    <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-    <slot />
-  </div>
+  <section>
+    <div class="mx-auto max-w-3xl px-8 py-24 sm:pt-32">
+      <div class="mx-auto max-w-2xl">
+        <div>
+          <div>
+            <div>
+              <p
+                class="text-2xl font-medium tracking-tighter text-neutral-900 dark:text-white sm:text-4xl">
+                Articles
+              </p>
+            </div>
+            <p class="mt-4 text-neutral-400 dark:text-neutral-300">
+              Here you will find all articles written!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto max-w-3xl px-8 py-12">
+      <div
+        class="mx-auto prose text-neutral-400 dark:text-neutral-300 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-blockquote:text-accent-400 dark:prose-blockquote:text-white dark:prose-blockquote:border-accent-400 prose-img:border prose-img:border-white/10 prose-img:rounded-lg dark:prose-code:text-white prose-a:text-accent-400">
+        <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+        <h1>{frontmatter.title}</h1>
+        <p><em>{frontmatter.description}</em></p>
+        <p>Written by: {frontmatter.author}</p>
+        <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+        <slot />
+      </div>
+    </div>
+  </section>
 </BaseLayout>

@@ -1,3 +1,7 @@
+---
+import Logo from "./Logo.astro";
+---
+
 <footer
   aria-labelledby="footer-heading"
   class="border-t dark:border-neutral-700">
@@ -7,15 +11,16 @@
       <div>
         <div class="flex items-center text-black">
           <div>
+            <p>
+              <Logo />
+            </p>
             <p
-              class="text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-accent-400">
-              ProfolioX.
-            </p><p
               class="mt-2 text-sm leading-6 text-neutral-400 dark:text-neutral-200">
               Designed and built in the Åland Islands by Michael Andreuzza.
             </p>
-            <p class="text-zinc-500 text-sm mt-6">
-              © Copyright <span>2022</span>. All rights reserved.
+            <p class="text-neutral-400 text-sm mt-6">
+              © Copyright <span x-text="getCurrentYear()"></span>. All rights
+              reserved.
             </p>
           </div>
         </div>

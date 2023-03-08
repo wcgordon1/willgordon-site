@@ -4,9 +4,9 @@ import { getCollection } from "astro:content";
 export async function get() {
   const posts = await getCollection('posts');
   return rss({
-    title: 'ProfolioX',
-    description: 'ProfolioX template for devs and designers',
-    site: 'profoliox.lexingtonthemes.com',
+    title: 'ProFolioX',
+    description: 'Personal template',
+    site: 'https://lexingtonthemes.com',
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,

@@ -53,9 +53,9 @@ const { posts } = Astro.props;
                 {
                   posts.map((post) => (
                     <li
-                      class="flex justify-between py-3 text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-accent-400"
+                      class="flex justify-between py-3 text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-blue-400"
                       aria-label="Strokes and fills on page 21">
-                      <span >
+                      <span>
                         <BlogPost
                           url={"/posts/" + post.slug}
                           title={post.data.title}

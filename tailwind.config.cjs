@@ -9,7 +9,7 @@ module.exports = {
         screens: "url('/path-to/image.png')",
       }),
       colors: {
-        accent: {
+        blue: {
           "50": "#EBEBFF",
           "100": "#D2D2FE",
           "200": "#A6A4FE",
@@ -44,7 +44,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/line-clamp'),
+
     require('@tailwindcss/aspect-ratio'),
   ],
 }

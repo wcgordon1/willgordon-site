@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import { tokenColors } from "./custom-theme.json";
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
-import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   markdown: {
@@ -18,5 +17,5 @@ export default defineConfig({
     }
   },
   site: 'https://lexingtonthemes.com',
-  integrations: [preact(), tailwind(), compress(), sitemap()]
+  integrations: [preact(), tailwind(),  sitemap()]
 });

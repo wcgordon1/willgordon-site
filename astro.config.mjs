@@ -1,19 +1,13 @@
 import { defineConfig } from "astro/config";
-import { tokenColors } from "./custom-theme.json";
+
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   markdown: {
+    drafts: true,
     shikiConfig: {
-      theme: {
-        name: "custom",
-        type: "dark",
-        settings: tokenColors
-      },
-      wrap: true,
-      skipInline: false,
-      drafts: false
+      theme: "css-variables"
     }
   },
   site: 'https://lexingtonthemes.com',

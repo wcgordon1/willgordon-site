@@ -1,67 +1,41 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
-import { AstroSeo } from "@astrolib/seo";
 ---
 
-<AstroSeo
-  title="Blog"
-  description="Your site description goes here"
-  canonical="https://www.lexingtonthemes.com"
-  openGraph={{
-    url: "https://www.lexingtonthemes.com",
-    title: "{Title}",
-    description: "Your site description goes here",
-    images: [
-      {
-        url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Social open graph",
-        type: "image/jpeg",
-      },
-      {
-        url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg",
-        width: 4096,
-        height: 4096,
-        alt: "Twitter open graph",
-        type: "image/jpeg",
-      },
-      { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
-      { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
-    ],
-    site_name: "YourSitesName",
-  }}
-  twitter={{
-    handle: "@TwitterHandle",
-    site: "@site",
-    cardType: "summary_large_image",
-  }}
-/>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll(" h2,  h3");
+    const tocContainer = document.getElementById("table-of-contents");
+    if (tocContainer && headings.length > 0) {
+      const tocList = document.createElement("ul");
+      tocList.classList.add("space-y-3", "text-xs");
+      headings.forEach((heading) => {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.textContent = heading.textContent;
+        link.href = `#${heading.id}`;
+        link.classList.add("text-black", "dark:text-white", "hover:underline");
+        listItem.appendChild(link);
+        tocList.appendChild(listItem);
+      });
+      tocContainer.appendChild(tocList);
+      tocContainer.classList.remove("hidden");
+    }
+  });
+</script>
 <BaseLayout>
   <section>
-    <div class="mx-auto max-w-3xl px-8 py-24 sm:pt-32">
-      <div class="mx-auto max-w-2xl">
-        <div>
-          <div>
-            <div>
-              <p
-                class="text-2xl font-medium tracking-tighter text-neutral-900 dark:text-white sm:text-4xl">
-                Articles
-              </p>
-            </div>
-            <p class="mt-4 text-neutral-400 dark:text-neutral-300">
-              Here you will find all articles written!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="mx-auto max-w-3xl px-8 py-12">
-      <div
-        class="mx-auto prose text-neutral-400 dark:text-neutral-300 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-blockquote:text-blue-400 dark:prose-blockquote:text-blue-300 dark:prose-blockquote:border-blue-400 prose-img:border prose-img:border-white/10 prose-img:rounded-lg dark:prose-code:text-white dark:prose-a:text-blue-400 dark:prose-strong:text-white">
+    <div class="max-w-3xl px-8 py-24 sm:pt-24">
+      <div class="prose-styles">
+        <p
+          class="text-2xl font-medium tracking-tight text-neutral-900 dark:text-white sm:text-4xl"
+        >
+          Articles
+        </p>
+        <p class="mt-4 text-neutral-400 dark:text-neutral-300">
+          Here you will find all articles written!
+        </p>
         <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
         <h1>{frontmatter.title}</h1>
         <p><em>{frontmatter.description}</em></p>
@@ -69,6 +43,13 @@ import { AstroSeo } from "@astrolib/seo";
         <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
         <slot />
       </div>
+      <aside
+        class="fixed inset-y-0 right-0 hidden w-64 overflow-y-auto bg-white dark:bg-neutral-900 border-l dark:border-neutral-700 px-4 py-6 sm:px-6 lg:px-8 xl:block"
+      >
+        <div id="table-of-contents" class="hidden lg:block lg:sticky lg:top-20">
+          <!-- Your table of contents content here -->
+        </div>
+      </aside>
     </div>
   </section>
 </BaseLayout>

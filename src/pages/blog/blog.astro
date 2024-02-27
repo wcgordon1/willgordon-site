@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import EntriesHero from "../components/entries/EntriesHero.astro";
-import EntriesOne from "../components/entries/EntriesOne.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EntriesHero from "../../components/entries/EntriesHero.astro";
+import EntriesOne from "../../components/entries/EntriesOne.astro";
 const allPosts = await getCollection("posts");
 ---
 <BaseLayout>

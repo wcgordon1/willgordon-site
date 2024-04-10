@@ -1,0 +1,203 @@
+---
+// Structure the sections with their respective items
+const services = [
+  {
+    title: "UI/UX",
+    items: [
+      {
+        name: "Design",
+        price: "5,455",
+        description:
+          "Through my UI/UX Design Systems offering, I create a unified toolkit tailored for your brand, guaranteeing design consistency and smooth adaptation as your business evolves.",
+        includes: [
+          "Brand Style Guide",
+          "Component Library",
+          "UI Patterns",
+          "Interactive Prototypes",
+          "Accessibility Standards",
+          "Responsive Designs",
+          "Design Tokens",
+          "User Flow Diagrams",
+          "Documentation & Guidelines",
+          "Version Control",
+        ],
+      },
+      // Add more items as necessary
+    ],
+  },
+  {
+    title: "Full-Stack Development",
+    items: [
+      {
+        name: "Development",
+        price: "5,455",
+        description:
+          "With my Full-Stack Development service, I deliver a comprehensive development package designed specifically for your brand, ensuring both front-end and back-end cohesion and seamless growth as your business advances.",
+        includes: [
+          "End-to-End Development",
+          "Database Design & Integration",
+          "API Development & Integration",
+          "Front-End & Back-End Programming",
+          "Security Best Practices",
+          "Scalable Architecture",
+          "Performance Optimization",
+          "Cloud Deployment & CI/CD",
+          "Technical Documentation",
+          "Ongoing Support & Maintenance",
+        ],
+      },
+      // Add more items as necessary
+    ],
+  },
+  {
+    title: "Branding",
+    items: [
+      {
+        name: "Brand Development",
+        price: "5,455",
+        description:
+          "Through my Branding service, I forge a distinctive identity for your brand, ensuring it resonates with your target audience and stands out in the marketplace. I provide a holistic approach to brand building, guaranteeing coherence across all touchpoints and the flexibility to evolve with your business.",
+        includes: [
+          "Brand Strategy & Positioning",
+          "Logo Design & Visual Identity",
+          "Brand Voice & Messaging",
+          "Packaging & Merchandise Design",
+          "Brand Guidelines",
+          "Marketing Collaterals",
+          "Digital Branding",
+          "Social Media Branding",
+          "Brand Launch Strategy",
+          "Ongoing Brand Management",
+        ],
+      },
+      // Add more items as necessary
+    ],
+  },
+  {
+  title: "Content Strategy",
+  items: [
+    {
+      name: "Content Planning & Execution",
+      price: "3,250",
+      description:
+        "My Content Strategy service ensures your brand communicates effectively with your audience through compelling content. I develop a tailored content plan that aligns with your brand's objectives, engaging your audience and driving conversions.",
+      includes: [
+        "Content Audit & Analysis",
+        "Content Calendar Development",
+        "SEO Content Optimization",
+        "Social Media Content Strategy",
+        "Email Marketing Strategy",
+        "Blog & Article Writing",
+        "Video Content Planning",
+        "Infographics & Visual Content",
+        "Content Performance Tracking",
+        "Editorial Guidelines",
+      ],
+    },
+    // Add more items as necessary
+  ],
+},
+{
+  title: "SEO & Digital Marketing",
+  items: [
+    {
+      name: "SEO Optimization & Marketing",
+      price: "4,000",
+      description:
+        "Leveraging my SEO & Digital Marketing services, I enhance your online presence and visibility. From keyword research to comprehensive SEO strategies, I ensure your brand ranks higher on search engines and reaches its target audience more effectively.",
+      includes: [
+        "Keyword Research & Strategy",
+        "On-page SEO",
+        "Off-page SEO",
+        "Content Marketing",
+        "Google Analytics & Webmaster Tools",
+        "Social Media Marketing",
+        "PPC Campaigns",
+        "Email Marketing Campaigns",
+        "Performance Analysis & Reporting",
+        "Competitor Analysis",
+      ],
+    },
+    // Add more items as necessary
+  ],
+},
+
+];
+---
+
+<section>
+  <div class="mx-auto max-w-3xl px-8 py-16">
+    <h1
+      class="text-2xl font-medium text-balance tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+      Studio
+    </h1>
+    <p class="mt-4 text-neutral-500 dark:text-neutral-400">
+      Dive into my range of freelance services, each carefully designed to bring
+      your projects to life with a blend of creativity and precision. From the
+      initial spark of an idea to the final touches, I'm here to transform your
+      vision into reality.
+    </p>
+    <div class="mt-24 flex flex-wrap gap-12 items-center justify-between">
+     <a
+  href="mailto:hello@profoliox.com"
+   title="your title"
+                aria-label="your label"
+  class="inline-flex items-center gap-2 justify-center rounded-lg py-3 px-6 text-sm outline-offset-2 transition bg-white text-black font-medium hover:bg-neutral-50 dark:text-white dark:bg-neutral-800/50 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 group w-full lg:w-auto border dark:border-white/20 h-10">
+  Send me an email
+</a>
+
+      <a
+        href="/forms/signin"
+         title="your title"
+                aria-label="your label"
+        class="text-sm text-neutral-500 hover:text-blue-400 dark:text-neutral-50 group duration-200 ">
+        Log into dashboard &rarr;
+      </a>
+    </div>
+    <div class="mt-4 border-y dark:border-neutral-700">
+      {
+        services.map((section) => (
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-6 items-start p-12 mt-12   bg-neutral-100 dark:bg-neutral-800 rounded-2xl">
+            <p class="text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-blue-400">
+              {section.title}
+            </p>
+            <div
+              role="list"
+              class=" dark:border-neutral-700  lg:col-span-2">
+              {section.items.map((item) => (
+                <div >
+                  <p class="font-semibold text-base text-black dark:text-white">
+                    {item.name}
+                  </p>
+                  <p class="text-neutral-500 text-sm dark:text-neutral-400">
+                    Starting at ${item.price}
+                  </p>
+                </div>
+                <div class="mt-6 pt-6 border-t col-span-full dark:border-neutral-700">
+                  <p class="text-neutral-500 text-sm text-pretty  dark:text-neutral-400">
+                    {item.description}
+                  </p>
+                  <ul
+                    class=" mt-4 text-neutral-500 list-disc  text-sm list-inside  dark:text-neutral-400"
+                    role="list">
+                    {item.includes.map((feature) => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+
+              ))}
+            </div>
+            <div class="flex mt-6 pt-6 border-t col-span-full dark:border-neutral-700">
+              <a
+              href="/forms/contact"
+                class="inline-flex items-center gap-2 justify-center ml-auto rounded-lg py-3 px-6 text-sm outline-offset-2 transition bg-black text-white font-medium hover:bg-neutral-500 dark:bg-white dark:text-black dark:hover:bg-neutral-800 dark:hover:text-neutral-50 group w-full lg:w-auto border border-white/20">
+                Get start
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

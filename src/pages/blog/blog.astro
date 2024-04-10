@@ -1,33 +1,80 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import EntriesHero from "../../components/entries/EntriesHero.astro";
-import EntriesOne from "../../components/entries/EntriesOne.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import EntriesOne from "@/components/blog/EntriesOne.astro";
+import LatestArticles from "@/components/blog/LatestArticles.astro";
 const allPosts = await getCollection("posts");
+import SubscribeCta from "@/components/blog/SubscribeCta.astro";
 ---
+
 <BaseLayout>
-  <EntriesHero />
   <section>
-    <div class="mx-auto max-w-3xl px-8 py-12">
-      <div class="mx-auto max-w-2xl">
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-12">
-          {
-            allPosts
-              .slice()
-              .map((post) => (
-                <EntriesOne
-                  url={"/posts/" + post.slug}
-                  title={post.data.title}
-                  description={post.data.description}
-                  alt={post.data.title}
-                  pubDate={post.data.pubDate.toString().slice(0, 10)}
-                  author={post.data.author}
-                  image={post.data.image.url}
-                />
-              ))
-          }
-        </ul>
+    <div class="mx-auto max-w-3xl px-8 py-16">
+      <p
+        class="text-2xl font-medium tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+        My blog
+      </p>
+      <p class="mt-4 text-neutral-500 dark:text-neutral-400">
+        Here you will find all articles written, published and updated by me on
+        my blog and website, including my latest articles and posts. I have a
+        passion for writing and sharing my knowledge and experiences with
+        others, so I hope you enjoy reading my content.
+      </p>
+
+      <ul
+        role="list"
+        class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-24 mt-12 border-t dark:border-neutral-700 pt-12">
+        {
+          allPosts
+            .slice()
+            .sort((a, b) => {
+              const dateA = new Date(a.data.pubDate).getTime();
+              const dateB = new Date(b.data.pubDate).getTime();
+              return dateB - dateA; // Sort in descending order, change to dateA - dateB for ascending order
+            })
+            .map((post) => (
+              <EntriesOne
+                url={"/posts/" + post.slug}
+                title={post.data.title}
+                description={post.data.description}
+                alt={post.data.title}
+                pubDate={new Date(post.data.pubDate).toISOString().slice(0, 10)}
+                author={post.data.author}
+                image={post.data.image.url}
+              />
+            ))
+        }
+      </ul>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto max-w-3xl px-8 py-12 sm:py-24">
+      <h2
+        class="text-2xl font-medium tracking-tight text-neutral-900 dark:text-white sm:text-4xl">
+        Related Articles
+      </h2>
+      <p class="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+        Check out my newest blog posts and discover the latest insights and
+        trends in web development and UI design. From essential skills and top
+        frameworks to user-centered design and responsive web design.
+      </p>
+      <div
+        class="grid md:grid-cols-2 mt-4 gap-12 gap-y-24 gap-x-6 border-t dark:border-neutral-700 pt-12">
+        {
+          allPosts.slice(0, 2).map((post) => (
+            <LatestArticles
+              url={"/posts/" + post.slug}
+              title={post.data.title}
+              description={post.data.description}
+              alt={post.data.title}
+              pubDate={new Date(post.data.pubDate).toISOString().slice(0, 10)}
+              author={post.data.author}
+              image={post.data.image.url}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
+  <SubscribeCta/>
 </BaseLayout>

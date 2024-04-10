@@ -3,28 +3,79 @@ import Logo from "./Logo.astro";
 ---
 
 <footer
-  aria-labelledby="footer-heading"
-  class="border-t dark:border-neutral-700">
+  class="border-t dark:border-neutral-700"
+  x-data="{ year: new Date().getFullYear() }">
   <div class="mx-auto max-w-3xl px-8 py-12">
     <div
-      class="flex flex-col gap-y-12 items-start lg:flex-row lg:items-center max-w-2xl mx-auto pb-6">
-      <div>
-        <div class="flex items-center text-black">
+      class="flex-col flex lg:flex-row lg:items-center gap-y-12 items-start justify-between pb-6 pt-16 max-w-3xl 2xl:max-w-6xl mx-auto">
+      <div class="flex flex-col gap-12 w-full">
+        <Logo />
+        <div class="leading-6 text-neutral-500 dark:text-neutral-200 text-sm flex flex-wrap justify-between w-full">
+          <nav class="flex-wrap  flex gap-y-3  gap-x-8">
+            <a
+              class="hover:text-black duration-300"
+              title="link to your page"
+              aria-label="your label"
+              href="/system/overview"
+              ><span class="relative z-10">Overview</span>
+            </a><a
+              class="hover:text-black duration-300"
+              title="link to your page"
+              aria-label="your label"
+              href="https://www.lexingtonthemes.com/legal/license"
+              ><span class="relative z-10">License</span>
+            </a><a
+              class="hover:text-black duration-300"
+              title="link to your page"
+              aria-label="your label"
+              href="https://lexingtonthemes.com/documentation/quick-start"
+              ><span class="relative z-10">Documentation</span>
+            </a><a
+              class="hover:text-black duration-300"
+              title="link to your page"
+              aria-label="your label"
+              href="/https://twitter.com/lexingtonthemes"
+              ><span class="relative z-10">Social</span>
+            </a>
+          </nav>
           <div>
-            <p>
-              <Logo />
-            </p>
-            <p
-              class="mt-2 text-sm leading-6 text-neutral-400 dark:text-neutral-200">
-              Designed and built in the Åland Islands by Michael Andreuzza.
-            </p>
-            <p class="text-neutral-400 text-sm mt-6">
-              © Copyright <span x-text="getCurrentYear()"></span>. All rights
-              reserved.
+            <p class="justify-end ml-auto">
+              <span
+                id="clock"
+                class="text-sm">
+              </span>
             </p>
           </div>
         </div>
       </div>
     </div>
+    <div
+      class="flex-col flex border-t dark:border-white/20 pt-6 pb-12 max-w-3xl 2xl:max-w-6xl mx-auto">
+      <p class="text-sm text-zinc-500">
+        © Copyright Lexington Themes <span x-text="year"></span>. All rights
+        reserved. Designed and built in the Åland Islands by Michael Andreuzza.
+      </p>
+    </div>
   </div>
 </footer>
+<script type="module">
+  function updateClock() {
+    const now = new Date(); // Get the current date and time
+    const hours = now.getHours(); // 0-23
+    const minutes = now.getMinutes(); // 0-59
+    const seconds = now.getSeconds(); // 0-59
+    // Format time as HH:MM:SS
+    // Use .toString().padStart(2, '0') to add leading zeros if needed
+    const timeString = [
+      hours.toString().padStart(2, "0"),
+      minutes.toString().padStart(2, "0"),
+      seconds.toString().padStart(2, "0"),
+    ].join(":");
+    // Update the clock element with the time
+    document.getElementById("clock").textContent = timeString;
+  }
+  // Update the clock every second
+  setInterval(updateClock, 1000);
+  // Initialize the clock
+  updateClock();
+</script>

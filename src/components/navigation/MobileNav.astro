@@ -35,7 +35,7 @@ import Avatar from "./Avatar.astro";
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="-translate-x-full"
     x-description="Off-canvas menu, show/hide based on off-canvas menu state."
-    class="relative flex flex-col flex-1 w-full max-w-xs bg-neutral-25 dark:bg-neutral-800"
+    class="relative flex flex-col flex-1 w-full max-w-xs bg-neutral-50 dark:bg-neutral-800"
     style="display: none">
     <div
       x-show="open"
@@ -50,11 +50,11 @@ import Avatar from "./Avatar.astro";
       style="display: none">
       <button
         type="button"
-        class="flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+        class="flex items-center justify-center size-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
         @click="open = false">
         <span class="sr-only">Close sidebar</span>
         <svg
-          class="w-6 h-6 text-neutral-900"
+          class="size-6 text-neutral-900"
           x-description="Heroicon name: outline/x"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -76,7 +76,7 @@ import Avatar from "./Avatar.astro";
       <nav class="px-2 mt-5 space-y-1"><NavigationLinks /></nav>
     </div>
     <div
-      class="flex flex-shrink-0 p-4 border-t dark:border-neutral-700 items-center">
+      class="flex flex-shrink-0 p-4 border-t dark:border-neutral-700  items-center">
       <SidebarCVButton />
     </div>
   </div>

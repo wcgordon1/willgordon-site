@@ -27,7 +27,7 @@
 
 
 .prose-styles {
-  @apply  prose text-neutral-400 dark:text-neutral-300 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-blockquote:text-blue-400 dark:prose-blockquote:text-blue-300 dark:prose-blockquote:border-blue-400 prose-img:border prose-img:border-white/10 prose-img:rounded-lg dark:prose-code:text-white dark:prose-a:text-blue-400 dark:prose-strong:text-white max-w-none prose-pre:border;
+  @apply  prose text-neutral-500 dark:text-neutral-400 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-blockquote:text-blue-400 dark:prose-blockquote:text-blue-300 dark:prose-blockquote:border-blue-400 prose-img:border dark:prose-img:border-neutral-700 prose-img:rounded-lg dark:prose-code:text-white prose-a:text-blue-400 hover:prose-a:text-blue-500 prose-a:duration-200 dark:prose-strong:text-white max-w-none prose-pre:border;
 }
 :root {
   --astro-code-color-text: #000000;

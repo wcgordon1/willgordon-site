@@ -1,31 +1,36 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import DesktopNav from "../components/navigation/DesktopNav.astro";
-import Footer from "../components/global/Footer.astro";
-import MobileNav from "../components/navigation/MobileNav.astro";
+import BaseHead from "@/components/BaseHead.astro";
+import DesktopNav from "@/components/navigation/DesktopNav.astro";
+import Footer from "@/components/global/Footer.astro";
+import MobileNav from "@/components/navigation/MobileNav.astro";
 import "../styles/global.css";
 ---
 
-<html lang="en" class="scroll-smooth">
+<html
+  lang="en"
+  class="scroll-smooth">
   <head>
     <BaseHead />
   </head>
   <body class="dark:bg-neutral-900 bg-white">
-    <div
-      class="min-h-[640px] 2xl:max-w-7xl mx-auto 2xl:border-x dark:border-neutral-700 relative">
-      <div x-data="{ open: false }" @keydown.window.escape="open = false">
+    <div class="min-h-[640px] flex flex-col">
+      <div
+        x-data="{ open: false }"
+        @keydown.window.escape="open = false">
         <!-- Static sidebar for desktop -->
         <DesktopNav />
         <div class="relative z-0 flex flex-1 overflow-hidden">
           <div
-            class="relative z-0 flex-1 overflow-y-auto focus:outline-none lg:pl-72">
+            class="relative z-0 flex-1 overflow-y-auto focus:outline-none lg:pl-72 2xl:pl-0">
             <MobileNav />
             <!-- Start main area-->
-            <div class="flex-1 mx-auto">
-              <slot />
+            <div class="flex-1 mx-auto min-h-svh flex flex-col">
+              <main class="grow">
+                <slot />
+              </main>
               <Footer />
+              <!--- end main area  -->
             </div>
-            <!--- end main area  -->
           </div>
         </div>
       </div>
